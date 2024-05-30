@@ -7,4 +7,13 @@
         <RootNamespace>BaseLibrar</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="DTOs\" />
+      <Folder Include="Responses\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+    </ItemGroup>
+
 </Project>
