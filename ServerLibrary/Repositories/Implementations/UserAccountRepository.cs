@@ -18,6 +18,15 @@ namespace ServerLibrary.Repositories.Implementations
 
             var checkUser = await FindUserByEmail(user.Email);
             if (checkUser != null) return new GeneralResponse(false, "User registered already");
+
+            // save user
+            var applicationUser = await AddToDatabase(new ApplicationUser 
+            { 
+                Fullname = user.FullName,
+                Email = user.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(user.Password)
+                
+            });
         }
 
         public Task<LoginResponse> SignInAsync(Login user) 
@@ -27,5 +36,12 @@ namespace ServerLibrary.Repositories.Implementations
 
         private async Task<ApplicationUser> FindUserByEmail(string email) => 
             await appDbContext.ApplicationUsers.FirstOrDefaultAsync(_ => _.Email!.ToLower()!.Equals(email!.ToLower() ) );
+
+        private async Task<T> AddToDatabase <T> (T model)
+        {
+            var result = appDbContext.Add(model!);
+            await appDbContext.SaveChangesAsync();
+            return (T)result.Entity;
+        }
     }
 }
