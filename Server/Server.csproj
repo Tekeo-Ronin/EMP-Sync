@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
-            <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0"/>
-            <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+            <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+            <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
             <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
                 <PrivateAssets>all</PrivateAssets>
                 <IncludeAssets>
@@ -22,15 +22,28 @@
                     buildtransitive
                 </IncludeAssets>
             </PackageReference>
-            <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3"/>
-            <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12"/>
-            <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3"/>
-            <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0"/>
+            <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3" />
+            <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
+            <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+            <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\BaseLibrary\BaseLibrary.csproj" />
       <ProjectReference Include="..\ServerLibrary\ServerLibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings_example.Development.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="appsettings_example.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
