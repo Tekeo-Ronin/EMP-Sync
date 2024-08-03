@@ -7,17 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-		<PackageReference Include="Blazored.LocalStorage" Version="4.4.0"/>
-		<PackageReference Include="Microsoft.AspNetcore.Components.Authorization" Version="8.0.0"/>
-		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0"/>
+		<PackageReference Include="Blazored.LocalStorage" Version="4.4.0" />
+		<PackageReference Include="Microsoft.AspNetcore.Components.Authorization" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all"/>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\BaseLibrary\BaseLibrary.csproj" />
       <ProjectReference Include="..\ClientLibrary\ClientLibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\AccountPages\" />
     </ItemGroup>
 
 </Project>
