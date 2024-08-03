@@ -28,6 +28,18 @@ namespace ClientLibrary.Helpers
             return await Task.FromResult(new AuthenticationState(claimsPrincipal));
         }
 
+        public async Task UpdateAuthenticationState(UserSession userSession)
+        {
+            var claimsPrincipal = new ClaimsPrincipal();
+            if(userSession.Token != null || userSession.RefreshToken != null)
+            {
+                var serializeSession = Serializations.SerializeObj(userSession);
+                await localStorageService.SetToken(serializeSession);
+                var getUserClaims = DecryptToken(userSession.Token!);
+                claimsPrincipal = SetClaimPrincipal(getUserClaims);
+            }
+        }
+
         public static ClaimsPrincipal SetClaimPrincipal(CustomUserClaims claims)
         {
             if (claims.Email is not null) return new ClaimsPrincipal();
